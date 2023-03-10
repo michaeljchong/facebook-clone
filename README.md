@@ -1,24 +1,12 @@
-# README
+# Facebook Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The goal of this project is to create a clone of facebook using rails MVC. This will be a CRUD app and will also feature authentication via OmniAuth and a rails mailer. Users will have their own profile and be able to have similar relationships with posts and other users as the original Facebook app. See the original project requirements on <a href="https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project">The Odin Project</a>.
 
-Things you may want to cover:
+Project Features:
+* 
 
-* Ruby version
+In The Works:
+* 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Project Extensions:
+* 
