@@ -1,0 +1,23 @@
+Facebook Data Architecture Outline
+
+Users
+  has_many posts
+  has_many friends, class_name User
+  has_many comments
+
+  name:string [unique, presence, 4-12 chars, format]
+  password:string [presence, 6-20 chars, format]
+  email:string
+
+Posts
+  belongs_to user
+  has_many comments
+  
+  title:string [presence, 1-150 chars]
+  body:text
+
+Comments
+  belongs_to posts
+  belongs_to user through posts
+
+  body:text [presence]
