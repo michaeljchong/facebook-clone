@@ -1,23 +1,35 @@
 Facebook Data Architecture Outline
 
-Users
-  has_many posts
-  has_many friends, class_name User
-  has_many comments
+User
+  has_many friendships, dependent destroy
+  has_many friends, through friendships
+  has_many friend_requests, class_name Friendship
+  has_many potential_friends, through friend_requests
+  has_many posts, dependent destroy
+  has_many comments, dependent destroy
+  has_many likes, dependent destroy
 
   name:string [unique, presence, 4-12 chars, format]
   password:string [presence, 6-20 chars, format]
   email:string
 
-Posts
+Friendship
   belongs_to user
-  has_many comments
-  
-  title:string [presence, 1-150 chars]
-  body:text
+  belongs_to friend, class_name User
 
-Comments
+Post
+  belongs_to author, class_name User
+  has_many comments, dependent destroy
+  has_many likes
+  
+  body:text [presence, 1-150 chars]
+
+Like
+  belongs_to user
+  belongs_to post
+
+Comment
   belongs_to posts
-  belongs_to user through posts
+  belongs_to User
 
   body:text [presence]
