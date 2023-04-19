@@ -14,8 +14,8 @@ User
   email:string
 
 Friendship
-  belongs_to user
-  belongs_to friend, class_name User
+  belongs_to requester, class_name user
+  belongs_to requestee, class_name User
 
 Post
   belongs_to author, class_name User
