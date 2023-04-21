@@ -21,18 +21,19 @@ Friendship
   accepted:boolean
 
 Post
-  belongs_to author, class_name User
+  belongs_to user
   has_many comments, dependent destroy
-  has_many likes, dependent destroy
+  has_many likes, as likeable, dependent destroy
   
   body:text [presence, 1-150 chars]
 
 Like
   belongs_to user
-  belongs_to post
+  belongs_to :likeable, polymorphic: true
 
 Comment
   belongs_to posts
   belongs_to User
+  has_many likes, as likeable, dependent destroy
 
   body:text [presence]
