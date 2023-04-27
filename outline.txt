@@ -17,7 +17,6 @@ Friendship
   belongs_to requester, class_name user
   belongs_to requestee, class_name User
 
-  responded:boolean
   accepted:boolean
 
 Post
