@@ -27,7 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_204635) do
   create_table "friendships", force: :cascade do |t|
     t.bigint "requester_id", null: false
     t.bigint "requestee_id", null: false
-    t.boolean "responded", default: false
     t.boolean "accepted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,10 +36,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_204635) do
 
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "post_id", null: false
+    t.string "likeable_type"
+    t.bigint "likeable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -69,7 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_204635) do
   add_foreign_key "comments", "users"
   add_foreign_key "friendships", "users", column: "requestee_id"
   add_foreign_key "friendships", "users", column: "requester_id"
-  add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
 end
