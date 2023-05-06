@@ -5,8 +5,8 @@
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= post.user_id %>
+    <strong>Author:</strong>
+    <%= User.find(post.user_id).name %>
   </p>
 
 </div>
