@@ -5,15 +5,15 @@ Rails.application.routes.draw do
   root "posts#index"
   devise_for :users
 
-  resources :users do
-    resources :friendships
+  resources :users, only: [:index, :show] do
+    resources :friendships, only: [:create]
   end
   
-  resources :posts do
-    resources :comments
+  concern :likeable do
+    resources :likes, only: [:create, :destroy]
   end
 
-  resources :comments do
-    resources :likes
+  resources :posts, shallow: true, concerns: :likeable do
+    resources :comments, except: [:index, :show], concerns: :likeable
   end
 end
