@@ -9,10 +9,15 @@ Project Features:
 * User commenting on posts
 
 In The Works:
+* Send and receive friend requests on users index page
+* User show page shows profile info and posts
 * Like posts and comments
-* Send and receive friend requests
+* Edit and delete comments (restricted to comment author)
 * Notifications
 * Navbar
+* User profile photo
+* OmniAuth signin
+* Mailer for welcome email
 
 Project Extensions:
 * 
