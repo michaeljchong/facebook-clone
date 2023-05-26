@@ -21,7 +21,8 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(comment_params)
 
     respond_to do |format|
       if @comment.save
@@ -60,7 +61,8 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @post = Post.find(params[:post_id])
+      @comment = @post.comments.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
