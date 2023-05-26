@@ -8,4 +8,7 @@
     <strong>User:</strong>
     <%= User.find(comment.user_id).name %>
   </p>
+
+  <%= link_to "Edit this comment", edit_comment_path(comment) %>
+  <%= button_to "Destroy this comment", comment, method: :delete %>
 </div>
