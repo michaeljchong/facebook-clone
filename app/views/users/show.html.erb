@@ -1,7 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @user %>
-
 <div>
   <%= link_to "Back to users", users_path %>
 </div>
+
+<%= render @user %>
+
+<h2>Posts</h2>
+<% @user.posts.each do |post| %>
+  <%= render post %>
+<% end %>
+
+<h2>Friends</h2>
+<% @user.friends.each do |friend| %>
+  <%= render user, user: friend %>
+<% end %>
