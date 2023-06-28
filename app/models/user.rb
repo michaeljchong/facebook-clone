@@ -13,7 +13,11 @@ class User < ApplicationRecord
   has_many :received_requests, -> { merge(Friendship.not_friends) }, through: :friend_requestee, source: :requester
 
   def visible_posts
-    combined_posts = posts.all
+    combined_posts = []
+    posts.each do |post|
+      combined_posts << post
+    end
+
     friends.each do |friend|
       friend.posts.each do |post|
         combined_posts << post
