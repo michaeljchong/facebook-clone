@@ -2,13 +2,37 @@
 
 <h1>Users</h1>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <% if current_user.id != user.id %>
+<div id="sent">
+  <h2>Sent Requests</h2>
+  <% @sent_requests.each do |user| %>
+    <div class="user">
       <%= link_to user.name, user_path(user) %>
-      <%= button_to "Add Friend", user_friendships_path(user) %>
-    <% end %>
+      <%= button_to "Remove", friendship_path(Friendship.where(requestee_id: user.id, requester_id: current_user.id).take.id), method: :delete %>
+    </div>
   <% end %>
 </div>
 
+<div id="received">
+  <h2>Received Requests</h2>
+  <% @received_requests.each do |user| %>
+    <div class="user">
+      <%= link_to user.name, user_path(user) %>
+      <%= button_to "Confirm"  %>
+      <%= button_to "Decline"  %>
+    </div>
+  <% end %>
+</div>
 
+<div id="users">
+  <h2>Add a Friend</h2>
+  <% @users.each do |user| %>
+    <% if current_user.id != user.id %>
+      <% unless @sent_requests.exists?(id: user.id) || @received_requests.exists?(id: user.id) %>
+        <div class="user">
+          <%= link_to user.name, user_path(user) %>
+          <%= button_to "Add Friend", user_friendships_path(user) %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
