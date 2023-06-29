@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :show] do
-    resources :friendships, only: [:create]
+    resources :friendships, only: [:create, :destroy], shallow: true
   end
   
   concern :likeable do
