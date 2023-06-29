@@ -21,7 +21,7 @@
       <div class="user">
         <%= link_to user.name, user_path(user) %>
         <%= button_to "Confirm"  %>
-        <%= button_to "Decline"  %>
+        <%= button_to "Decline", friendship_path(Friendship.where(requestee_id: current_user.id, requester_id: user.id).take.id), method: :delete%>
       </div>
     <% end %>
   </div>
