@@ -7,10 +7,10 @@ Project Features:
 * Complex rails associations between multiple models
 * PostgreSQL
 * User commenting on posts
-
-In The Works:
-* Send and receive friend requests on users index page
 * User show page shows profile info and posts
+
+To Do:
+* Send and receive friend requests on users index page
 * Like posts and comments
 * Edit and delete comments (restricted to comment author)
 * Notifications
@@ -20,4 +20,4 @@ In The Works:
 * Mailer for welcome email
 
 Project Extensions:
-* 
+* Set posts to private, friends-only or public
