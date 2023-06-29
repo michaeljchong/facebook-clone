@@ -2,26 +2,30 @@
 
 <h1>Users</h1>
 
-<div id="sent">
-  <h2>Sent Requests</h2>
-  <% @sent_requests.each do |user| %>
-    <div class="user">
-      <%= link_to user.name, user_path(user) %>
-      <%= button_to "Remove", friendship_path(Friendship.where(requestee_id: user.id, requester_id: current_user.id).take.id), method: :delete %>
-    </div>
-  <% end %>
-</div>
+<% unless @sent_requests.empty? %>
+  <div id="sent">
+    <h2>Sent Requests</h2>
+    <% @sent_requests.each do |user| %>
+      <div class="user">
+        <%= link_to user.name, user_path(user) %>
+        <%= button_to "Remove", friendship_path(Friendship.where(requestee_id: user.id, requester_id: current_user.id).take.id), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
-<div id="received">
-  <h2>Received Requests</h2>
-  <% @received_requests.each do |user| %>
-    <div class="user">
-      <%= link_to user.name, user_path(user) %>
-      <%= button_to "Confirm"  %>
-      <%= button_to "Decline"  %>
-    </div>
-  <% end %>
-</div>
+<% unless @received_requests.empty? %>
+  <div id="received">
+    <h2>Received Requests</h2>
+    <% @received_requests.each do |user| %>
+      <div class="user">
+        <%= link_to user.name, user_path(user) %>
+        <%= button_to "Confirm"  %>
+        <%= button_to "Decline"  %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
 <div id="users">
   <h2>Add a Friend</h2>
