@@ -15,6 +15,8 @@ To Do:
 * Edit and delete comments (restricted to comment author)
 * Notifications
 * Navbar
+* display comments and likes with posts on posts index page
+* Sort posts on posts index page by date
 * User profile photo
 * OmniAuth signin
 * Mailer for welcome email
