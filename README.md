@@ -8,9 +8,9 @@ Project Features:
 * PostgreSQL
 * User commenting on posts
 * User show page shows profile info and posts
+* Send and receive friend requests on users index page
 
 To Do:
-* Send and receive friend requests on users index page
 * Like posts and comments
 * Edit and delete comments (restricted to comment author)
 * Notifications
