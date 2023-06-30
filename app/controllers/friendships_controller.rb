@@ -1,7 +1,6 @@
 class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.friend_requester.new(requestee_id: params[:user_id])
-
     if @friendship.save
       flash[:success] = 'Friend Request Sent!'
     else
@@ -11,12 +10,32 @@ class FriendshipsController < ApplicationController
     redirect_to root_path
   end
 
-  def destroy
-    @friendship = Friendship.find_by(id: params[:id])
-    @friendship.destroy
+  def confirm_request
+    @friendship = Friendship.find_by(requestee_id: current_user.id, requester_id: params[:user_id])
+    @friendship.accepted = true
+
+    if @friendship.save
+      flash[:success] = 'Friend Request Accepted!'
+      @reciprocal_friendship = current_user.friend_requester.new(requestee_id: params[:user_id], accepted: true)
+      @reciprocal_friendship.save
+    else
+      flash[:danger] = 'Friend Request could not be accepted!'
+    end
+
+    redirect_to root_path
+  end
+
+  def delete_request
+    @friendship = Friendship.find_by(requestee_id: current_user.id, requester_id: params[:user_id])
+    if @friendship
+      @friendship.destroy
+    else
+      @friendship = Friendship.find_by(requester_id: current_user.id, requestee_id: params[:user_id])
+      @friendship.destroy
+    end
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "Friendship was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Friend request was successfully deleted." }
       format.json { head :no_content }
     end
   end
