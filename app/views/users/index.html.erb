@@ -1,5 +1,17 @@
 <h1>Users</h1>
 
+<% unless @friends.empty? %>
+  <div id="friends">
+    <h2>Friends</h2>
+    <% @friends.each do |user| %>
+      <div class="user">
+        <%= link_to user.name, user_path(user) %>
+        <%= button_to "Unfriend", unfriend_user_friendships_path(user), method: :get %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 <% unless @sent_requests.empty? %>
   <div id="sent">
     <h2>Sent Requests</h2>
