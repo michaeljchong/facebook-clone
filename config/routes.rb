@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       collection do
         get :confirm_request
         get :delete_request
+        get :unfriend
       end
     end
   end
