@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :show] do
-    resources :friendships, only: [:create, :destroy], shallow: true
+    resources :friendships, only: [:create] do
+      collection do
+        get :confirm_request
+        get :delete_request
+      end
+    end
   end
   
   concern :likeable do
