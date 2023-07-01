@@ -23,3 +23,4 @@ To Do:
 
 Project Extensions:
 * Set posts to private, friends-only or public
+* Refactor to move friendship methods from controller to model
