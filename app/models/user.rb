@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :friends, -> { merge(Friendship.friends) }, through: :friend_requester, source: :requestee
   has_many :sent_requests, -> { merge(Friendship.not_friends) }, through: :friend_requester, source: :requestee
   has_many :received_requests, -> { merge(Friendship.not_friends) }, through: :friend_requestee, source: :requester
+  has_many :notifications, dependent: :destroy
 
   def visible_posts
     combined_posts = []
