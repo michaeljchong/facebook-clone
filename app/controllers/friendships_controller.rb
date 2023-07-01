@@ -3,6 +3,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friend_requester.new(requestee_id: params[:user_id])
     if @friendship.save
       flash[:success] = 'Friend Request Sent!'
+      User.find(params[:user_id]).notifications.create(notification_id: @friendship.id, category: "request")
     else
       flash[:danger] = 'Friend Request Failed!'
     end
