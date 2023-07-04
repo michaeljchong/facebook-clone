@@ -1,0 +1,9 @@
+<div class="notification">
+  <% case notification.category when "request" %>
+    <%= "#{User.find(Friendship.find(notification.notification_id).requester_id).name} sent you a friend request!" %>
+  <% when "comment" %>
+
+  <% when "like" %>
+
+  <% end %>
+</div>
