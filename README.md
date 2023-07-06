@@ -9,12 +9,12 @@ Project Features:
 * User commenting on posts
 * User show page shows profile info and posts
 * Send and receive friend requests on users index page
-* Notifications for new friend requests
+* Notifications for new friend requests, comments
 
 To Do:
 * Like posts and comments
 * Edit and delete comments (restricted to comment author)
-* Notifications for likes, comments
+* Notifications for likes
 * Set view state on notifications to differentiate between ones that have already been seen
 * Destroy friend request notification once request is accepted or deleted
 * Navbar
