@@ -6,6 +6,13 @@
 
 <%= render @user %>
 
+<% unless @notifications.empty? %>
+  <h2>Notifications</h2>
+  <% @notifications.each do |notification| %>
+    <%= render 'notification', notification: notification %>
+  <% end %>
+<% end %>
+
 <h2>Posts</h2>
 <% @user.posts.each do |post| %>
   <%= render post %>
@@ -13,5 +20,5 @@
 
 <h2>Friends</h2>
 <% @user.friends.each do |friend| %>
-  <%= render user, user: friend %>
+  <%= render 'user', user: friend %>
 <% end %>

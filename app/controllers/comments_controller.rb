@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
         format.json { render :show, status: :created, location: @comment }
+        helpers.new_notification(@post.user_id, @comment.id, "comment")
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

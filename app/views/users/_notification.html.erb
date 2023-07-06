@@ -1,0 +1,14 @@
+<div class="notification">
+  <% case notification.category when "request" %>
+    <%= "#{User.find(Friendship.find(notification.notification_id).requester_id).name} sent you a friend request!" %>
+  <% when "comment" %>
+    <%= "#{User.find(Comment.find(notification.notification_id).user_id).name} commented on your post." %>
+  <% when "like" %>
+    <% like = Like.find(notification.notification_id) %>
+    <% if like.likeable_type = "post" %>
+      <%= "#{User.find(like.user_id).name} liked your post." %>
+    <% else %>
+      <%= "#{User.find(like.user_id).name} liked your comment." %>
+    <% end %>
+  <% end %>
+</div>
