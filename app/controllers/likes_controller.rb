@@ -1,26 +1,23 @@
 class LikesController < ApplicationController
   # POST /likes or /likes.json
   def create
-    @like = Like.new(like_params)
+    @like = current_user.likes.new(like_params)
 
     respond_to do |format|
       if @like.save
-        format.html { redirect_to like_url(@like), notice: "Like was successfully created." }
-        format.json { render :show, status: :created, location: @like }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @like.errors, status: :unprocessable_entity }
+        format.html { redirect_to @like.likeable, notice: "Like was successfully created." }
       end
     end
   end
 
   # DELETE /likes/1 or /likes/1.json
   def destroy
-    @like = Like.find(params[:id])
+    @like = current_user.likes.find(params[:id])
+    likeable = @like.likeable
     @like.destroy
 
     respond_to do |format|
-      format.html { redirect_to likes_url, notice: "Like was successfully destroyed." }
+      format.html { redirect_to likeable, notice: "Like was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -28,6 +25,6 @@ class LikesController < ApplicationController
   private
     # Only allow a list of trusted parameters through.
     def like_params
-      params.require(:like).permit(:user_id, :post_id)
+      params.require(:like).permit(:likeable_type, :likeable_id)
     end
 end
