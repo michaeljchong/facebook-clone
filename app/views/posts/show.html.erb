@@ -3,6 +3,10 @@
 <%= render @post %>
 
 <div>
+  <%= button_to "Like this post", post_likes_path(@post), params: {like: {likeable_type: "Post", likeable_id: @post.id}} %>
+</div>
+
+<div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
   <%= link_to "Back to posts", posts_path %>
 
