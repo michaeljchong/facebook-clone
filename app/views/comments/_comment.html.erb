@@ -9,6 +9,7 @@
     <%= User.find(comment.user_id).name %>
   </p>
 
+  <%= button_to "Like this comment", comment_likes_path(comment), params: {like: {likeable_type: "Comment", likeable_id: comment.id}} %>
   <%= link_to "Edit this comment", edit_comment_path(comment) %>
   <%= button_to "Destroy this comment", comment, method: :delete %>
 </div>
