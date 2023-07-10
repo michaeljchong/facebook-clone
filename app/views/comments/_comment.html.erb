@@ -9,7 +9,12 @@
     <%= User.find(comment.user_id).name %>
   </p>
 
-  <%= button_to "Like this comment", comment_likes_path(comment), params: {like: {likeable_type: "Comment", likeable_id: comment.id}} %>
+  <% existing_like = comment.likes.find_by(user_id: current_user.id) %>
+  <% if existing_like.nil? %>
+    <%= button_to "Like", comment_likes_path(comment), params: {like: {likeable_type: "Comment", likeable_id: comment.id}} %>
+  <% else %>
+    <%= button_to "Unlike", existing_like, method: :delete %>
+  <% end %>
   <%= link_to "Edit this comment", edit_comment_path(comment) %>
   <%= button_to "Destroy this comment", comment, method: :delete %>
 </div>
