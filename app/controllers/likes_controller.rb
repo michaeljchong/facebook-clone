@@ -4,6 +4,7 @@ class LikesController < ApplicationController
 
     if @like.save
       flash[:success] = "Like was successfully created."
+      helpers.new_notification(@like.likeable.user.id, @like.id, "like")
     else
       flash[:danger] = 'Like Failed!'
     end
