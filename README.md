@@ -10,10 +10,9 @@ Project Features:
 * User show page shows profile info and posts
 * Send and receive friend requests on users index page
 * Notifications for new friend requests, comments
-* Like posts
+* Like posts and comments
 
 In Progress:
-* Like comments
 * Unlike functionality
 
 To Do:
