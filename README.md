@@ -9,17 +9,16 @@ Project Features:
 * User commenting on posts
 * User show page shows profile info and posts
 * Send and receive friend requests on users index page
-* Notifications for new friend requests, comments
+* Notifications for new friend requests, comments, and likes
 * Like/unlike posts and comments
 
 In Progress:
-* Notifications for likes
+* Navbar
 
 To Do:
 * Edit and delete comments (restricted to comment author)
 * Set view state on notifications to differentiate between ones that have already been seen
 * Destroy friend request notification once request is accepted or deleted
-* Navbar
 * display comments and likes with posts on posts index page
 * Sort posts on posts index page by date
 * User profile photo
@@ -30,3 +29,4 @@ Project Extensions:
 * Set posts to private, friends-only or public
 * Refactor to move friendship methods from controller to model
 * Display other users who also liked post/comment
+* Notifications link to referenced post/comment, or allows user to respond to friend request
