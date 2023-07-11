@@ -16,14 +16,17 @@ In Progress:
 * Navbar
 
 To Do:
-* Edit and delete comments (restricted to comment author)
+* Fix editing and deleting comments
+* Restrict editing and deleting posts/comments to author
 * Set view state on notifications to differentiate between ones that have already been seen
 * Destroy friend request notification once request is accepted or deleted
+* Fix error in notifications after destroying like, post, or comment (association with dependent destroy)
 * display comments and likes with posts on posts index page
-* Sort posts on posts index page by date
+* Sort posts on posts index page by created by date
 * User profile photo
 * OmniAuth signin
 * Mailer for welcome email
+* Change links to buttons
 
 Project Extensions:
 * Set posts to private, friends-only or public
