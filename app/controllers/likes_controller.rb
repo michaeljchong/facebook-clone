@@ -2,12 +2,8 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.new(like_params)
 
-    if @like.save
-      flash[:success] = "Like was successfully created."
-      helpers.new_notification(@like.likeable.user.id, @like.id, "like")
-    else
-      flash[:danger] = 'Like Failed!'
-    end
+    flash[:notice] = "Like was successfully created." if @like.save
+    helpers.new_notification(@like.likeable.user.id, @like.id, "like")
     redirect_to @like.likeable
   end
 
@@ -15,11 +11,7 @@ class LikesController < ApplicationController
     @like = Like.find(params[:id])
     likeable = @like.likeable
 
-    if @like.destroy
-      flash[:success] = "Like was successfully destroyed."
-    else
-      flash[:danger] = 'Unlike Failed!'
-    end
+    flash[:notice] = "Like was successfully destroyed." if @like.destroy
     redirect_to likeable
   end
 
