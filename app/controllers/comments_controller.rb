@@ -10,13 +10,9 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
 
-    if @comment.save
-      flash[:notice] = "Comment was successfully created."
-      helpers.new_notification(@post.user_id, @comment.id, "comment")
-      redirect_to @post
-    else
-      render :new
-    end
+    flash[:notice] = "Comment was successfully created." if @comment.save
+    helpers.new_notification(@post.user_id, @comment.id, "comment")
+    redirect_to @post
   end
 
   # PATCH/PUT /comments/1 or /comments/1.json
@@ -39,6 +35,10 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+      unless current_user == @comment.user
+        flash[:alert] = "Comment can only be modified by the comment author"
+        redirect_to @comment.post
+      end
     end
 
     # Only allow a list of trusted parameters through.
