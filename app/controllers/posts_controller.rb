@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = "Post was successfully created."
-      redirect_to post_url(@post)
+      redirect_to @post
     else
       render :new
     end
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   def update
     if @post.update(post_params)
       flash[:notice] = "Post was successfully updated."
-      redirect_to post_url(@post)
+      redirect_to @post
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     flash[:notice] = "Post was successfully destroyed." if @post.destroy
-    redirect_to posts_url
+    redirect_to posts_path
   end
 
   private

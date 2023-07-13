@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = "Comment was successfully created."
       helpers.new_notification(@post.user_id, @comment.id, "comment")
-      redirect_to comment_url(@comment)
+      redirect_to @post
     else
       render :new
     end
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   def update
     if @comment.update(comment_params)
       flash[:notice] = "Comment was successfully updated."
-      redirect_to post_url(@comment.post)
+      redirect_to @comment.post
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1 or /comments/1.json
   def destroy
     flash[:notice] = "Comment was successfully destroyed." if @comment.destroy
-    redirect_to comments_url
+    redirect_to @comment.post
   end
 
   private
