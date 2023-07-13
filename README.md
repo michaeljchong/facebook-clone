@@ -11,12 +11,12 @@ Project Features:
 * Send and receive friend requests on users index page
 * Notifications for new friend requests, comments, and likes
 * Like/unlike posts and comments
-
-In Progress:
 * Navbar
 
-To Do:
+In Progress:
 * Fix editing and deleting comments
+
+To Do:
 * Restrict editing and deleting posts/comments to author
 * Set view state on notifications to differentiate between ones that have already been seen
 * Destroy friend request notification once request is accepted or deleted
