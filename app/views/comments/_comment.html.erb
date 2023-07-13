@@ -6,7 +6,7 @@
 
   <p>
     <strong>User:</strong>
-    <%= User.find(comment.user_id).name %>
+    <%= comment.user.name %>
   </p>
 
   <% existing_like = comment.likes.find_by(user_id: current_user.id) %>
