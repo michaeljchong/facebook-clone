@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   def update
     if @comment.update(comment_params)
       flash[:notice] = "Comment was successfully updated."
-      redirect_to comment_url(@comment)
+      redirect_to post_url(@comment.post)
     else
       render :edit
     end
@@ -43,8 +43,7 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @post = Post.find(params[:post_id])
-      @comment = @post.comments.find(params[:id])
+      @comment = Comment.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
