@@ -12,12 +12,13 @@ Project Features:
 * Notifications for new friend requests, comments, and likes
 * Like/unlike posts and comments
 * Navbar
+* Comment author can edit and delete comment
 
 In Progress:
-* Fix editing and deleting comments
 
 To Do:
-* Restrict editing and deleting posts/comments to author
+* Restrict editing and deleting posts to author
+* Notification view
 * Set view state on notifications to differentiate between ones that have already been seen
 * Destroy friend request notification once request is accepted or deleted
 * Fix error in notifications after destroying like, post, or comment (association with dependent destroy)
