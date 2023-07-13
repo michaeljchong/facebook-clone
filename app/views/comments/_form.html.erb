@@ -1,14 +1,12 @@
-<%= form_with(model: @comment) do |form| %>
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-  </div>
+<div>
+  <%= form.label :body, style: "display: block" %>
+  <%= form.text_area :body %>
+</div>
 
-  <div>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-  </div>
+<div>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<div>
+  <%= form.submit %>
+</div>

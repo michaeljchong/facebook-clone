@@ -1,6 +1,8 @@
 <h1>Editing comment</h1>
 
-<%= render "form", comment: @comment %>
+<%= form_with model: @comment do |form| %>
+  <%= render form %>
+<% end %>
 
 <br>
 
