@@ -1,11 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ edit update destroy ]
 
-  # GET /comments/new
-  def new
-    @comment = Comment.new
-  end
-
   # GET /comments/1/edit
   def edit
   end

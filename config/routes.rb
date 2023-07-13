@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   end
 
   resources :posts, shallow: true, concerns: :likeable do
-    resources :comments, except: [:index, :show], concerns: :likeable
+    resources :comments, except: [:new, :index, :show], concerns: :likeable
   end
 end
