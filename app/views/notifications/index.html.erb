@@ -1,0 +1,19 @@
+<div class="notification">
+  <% unless @notifications.empty? %>
+    <h2>Notifications</h2>
+    <% @notifications.each do |notification| %>
+      <% case notification.category when "request" %>
+        <%= "#{Friendship.find(notification.notification_id).requester.name} sent you a friend request!" %>
+      <% when "comment" %>
+        <%= "#{Comment.find(notification.notification_id).user.name} commented on your post." %>
+      <% when "like" %>
+        <% like = Like.find(notification.notification_id) %>
+        <% if like.likeable_type == "Post" %>
+          <%= "#{like.user.name} liked your post." %>
+        <% else %>
+          <%= "#{like.user.name} liked your comment." %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>  
+</div>
