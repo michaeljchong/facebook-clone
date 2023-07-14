@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         get :unfriend
       end
     end
+    resources :notifications, only: [:index]
   end
   
   concern :likeable do
