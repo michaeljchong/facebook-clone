@@ -12,18 +12,17 @@ Project Features:
 * Notifications for new friend requests, comments, and likes
 * Like/unlike posts and comments
 * Navbar
-* Comment author can edit and delete comment
+* Only post/comment author can edit and delete post/comment
 
 In Progress:
+* Move notifications to separate view accessible from navbar
+* display comments and likes with posts on posts index page
+* Sort posts on posts index page by created by date
 
 To Do:
-* Restrict editing and deleting posts to author
-* Notification view
 * Set view state on notifications to differentiate between ones that have already been seen
 * Destroy friend request notification once request is accepted or deleted
 * Fix error in notifications after destroying like, post, or comment (association with dependent destroy)
-* display comments and likes with posts on posts index page
-* Sort posts on posts index page by created by date
 * User profile photo
 * OmniAuth signin
 * Mailer for welcome email
