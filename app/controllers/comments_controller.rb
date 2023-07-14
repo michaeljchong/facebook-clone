@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ edit update destroy ]
+  before_action :set_comment, :check_user, only: %i[ edit update destroy ]
 
   # GET /comments/1/edit
   def edit
@@ -35,6 +35,9 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def check_user
       unless current_user == @comment.user
         flash[:alert] = "Comment can only be modified by the comment author"
         redirect_to @comment.post
