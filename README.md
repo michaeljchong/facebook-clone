@@ -11,11 +11,10 @@ Project Features:
 * Send and receive friend requests on users index page
 * Notifications for new friend requests, comments, and likes
 * Like/unlike posts and comments
-* Navbar
+* Navbar (User profile, posts, users, notifications, edit profile, log in/out)
 * Only post/comment author can edit and delete post/comment
 
 In Progress:
-* Move notifications to separate view accessible from navbar
 * display comments and likes with posts on posts index page
 * Sort posts on posts index page by created by date
 
