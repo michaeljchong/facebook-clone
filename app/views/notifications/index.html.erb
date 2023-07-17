@@ -1,6 +1,8 @@
 <div class="notification">
-  <% unless @notifications.empty? %>
-    <h2>Notifications</h2>
+  <h2>Notifications</h2>
+  <% if @notifications.empty? %>
+    <p>No new notifications</p>
+  <% else %>
     <% @notifications.each do |notification| %>
       <% case notification.category when "request" %>
         <%= "#{Friendship.find(notification.notification_id).requester.name} sent you a friend request!" %>
