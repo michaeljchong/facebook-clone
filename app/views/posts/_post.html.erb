@@ -1,17 +1,6 @@
 <div class="post">
   <%= render 'shared/body', item: post %>
-
-  <div>
-    <% existing_like = post.likes.find_by(user_id: current_user.id) %>
-    <% if existing_like.nil? %>
-      <%= button_to "Like", post_likes_path(post), params: {like: {likeable_type: "Post", likeable_id: post.id}} %>
-    <% else %>
-      <%= button_to "Unlike", existing_like, method: :delete %>
-    <% end %>
-    
-    <%= link_to "Edit this post", edit_post_path(post) %>
-    <%= button_to "Destroy this post", post, method: :delete %>
-  </div>
+  <%= render 'shared/buttons', item: post %>
 
   <div>
     <h2>Comments</h2>
