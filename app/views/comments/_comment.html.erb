@@ -1,21 +1,23 @@
-<div id="<%= dom_id comment %>">
-  <p>
-    <strong>Body:</strong>
-    <%= comment.body %>
-  </p>
+<div class="comment">
+  <div class="comment-body">
+    <p>
+      <strong><%= comment.user.name %></strong>
+      <%= formatted_time(comment) %>
+    </p>
+    <p>
+      <%= comment.body %>
+    </p>
+  </div>
 
-  <p>
-    <strong>User:</strong>
-    <%= comment.user.name %>
-  </p>
-
-  <% existing_like = comment.likes.find_by(user_id: current_user.id) %>
-  <% if existing_like.nil? %>
-    <%= button_to "Like", comment_likes_path(comment), params: {like: {likeable_type: "Comment", likeable_id: comment.id}} %>
-  <% else %>
-    <%= button_to "Unlike", existing_like, method: :delete %>
-  <% end %>
-  
-  <%= link_to "Edit this comment", edit_comment_path(comment) %>
-  <%= button_to "Destroy this comment", comment, method: :delete %>
+  <div>
+    <% existing_like = comment.likes.find_by(user_id: current_user.id) %>
+    <% if existing_like.nil? %>
+      <%= button_to "Like", comment_likes_path(comment), params: {like: {likeable_type: "Comment", likeable_id: comment.id}} %>
+    <% else %>
+      <%= button_to "Unlike", existing_like, method: :delete %>
+    <% end %>
+    
+    <%= link_to "Edit this comment", edit_comment_path(comment) %>
+    <%= button_to "Destroy this comment", comment, method: :delete %>
+  </div>
 </div>
