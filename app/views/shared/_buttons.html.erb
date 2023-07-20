@@ -1,11 +1,14 @@
+<% type = item.class.name.downcase %>
+<% id = item.id %>
+<% existing_like = item.likes.find_by(user_id: current_user.id) %>
+
 <div>
-  <% existing_like = item.likes.find_by(user_id: current_user.id) %>
   <% if existing_like.nil? %>
-    <%= button_to "Like", "#{item.class.name.downcase}s/#{item.id}/likes", params: {like: {likeable_type: "#{item.class}", likeable_id: item.id}} %>
+    <%= button_to "Like", "#{type}s/#{id}/likes", params: {like: {likeable_type: item.class, likeable_id: id}} %>
   <% else %>
     <%= button_to "Unlike", existing_like, method: :delete %>
   <% end %>
   
-  <%= link_to "Edit this #{item.class.name.downcase}", "#{item.class.name.downcase}s/#{item.id}/edit" %>
-  <%= button_to "Destroy this #{item.class.name.downcase}", item, method: :delete %>
+  <%= link_to "Edit this #{type}", "#{type}s/#{id}/edit" %>
+  <%= button_to "Destroy this #{type}", item, method: :delete %>
 </div>
