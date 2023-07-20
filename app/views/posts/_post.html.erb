@@ -1,4 +1,4 @@
-<div id="<%= dom_id post %>">
+<div class="post-body">
   <p>
     <strong><%= User.find(post.user_id).name %></strong>
     <%= post.created_at %>
@@ -6,4 +6,25 @@
   <p>
     <%= post.body %>
   </p>
+</div>
+
+<div>
+  <% existing_like = post.likes.find_by(user_id: current_user.id) %>
+  <% if existing_like.nil? %>
+    <%= button_to "Like", post_likes_path(post), params: {like: {likeable_type: "Post", likeable_id: post.id}} %>
+  <% else %>
+    <%= button_to "Unlike", existing_like, method: :delete %>
+  <% end %>
+  
+  <%= link_to "Edit this post", edit_post_path(post) %>
+  <%= button_to "Destroy this post", post, method: :delete %>
+</div>
+
+<div>
+  <h2>Comments</h2>
+  <%= render post.comments %>
+  <h2>Add a comment:</h2>
+  <%= form_with model: [post, Comment.new] do |form| %>
+    <%= render "comments/form", form: form %>
+  <% end %>
 </div>
