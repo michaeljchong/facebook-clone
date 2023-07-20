@@ -1,13 +1,5 @@
 <div class="post">
-  <div class="post-body">
-    <p>
-      <strong><%= post.user.name %></strong>
-      <%= formatted_time(post) %>
-    </p>
-    <p>
-      <%= post.body %>
-    </p>
-  </div>
+  <%= render 'shared/body', item: post %>
 
   <div>
     <% existing_like = post.likes.find_by(user_id: current_user.id) %>

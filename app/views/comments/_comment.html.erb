@@ -1,13 +1,5 @@
 <div class="comment">
-  <div class="comment-body">
-    <p>
-      <strong><%= comment.user.name %></strong>
-      <%= formatted_time(comment) %>
-    </p>
-    <p>
-      <%= comment.body %>
-    </p>
-  </div>
+  <%= render 'shared/body', item: comment %>
 
   <div>
     <% existing_like = comment.likes.find_by(user_id: current_user.id) %>
