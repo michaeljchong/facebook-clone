@@ -4,15 +4,14 @@ class LikesController < ApplicationController
 
     flash[:notice] = "Like was successfully created." if @like.save
     helpers.new_notification(@like.likeable.user.id, @like.id, "like")
-    redirect_to @like.likeable
+    redirect_to posts_path
   end
 
   def destroy
     @like = Like.find(params[:id])
-    likeable = @like.likeable
 
     flash[:notice] = "Like was successfully destroyed." if @like.destroy
-    redirect_to likeable
+    redirect_to posts_path
   end
 
   private
