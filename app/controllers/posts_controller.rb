@@ -1,14 +1,9 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :check_user, only: %i[ edit update destroy ]
+  before_action :set_post, :check_user, only: %i[ edit update destroy ]
 
   # GET /posts or /posts.json
   def index
     @posts = current_user.visible_posts.sort_by { |post| post.created_at }
-  end
-
-  # GET /posts/1 or /posts/1.json
-  def show
   end
 
   # GET /posts/new
@@ -26,7 +21,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = "Post was successfully created."
-      redirect_to @post
+      redirect_to posts_path
     else
       render :new
     end
@@ -36,7 +31,7 @@ class PostsController < ApplicationController
   def update
     if @post.update(post_params)
       flash[:notice] = "Post was successfully updated."
-      redirect_to @post
+      redirect_to posts_path
     else
       render :edit
     end
@@ -57,7 +52,7 @@ class PostsController < ApplicationController
     def check_user
       unless current_user == @post.user
         flash[:alert] = "Post can only be modified by the post author"
-        redirect_to @post
+        redirect_to posts_path
       end
     end
 

@@ -12,14 +12,14 @@ class CommentsController < ApplicationController
 
     flash[:notice] = "Comment was successfully created." if @comment.save
     helpers.new_notification(@post.user_id, @comment.id, "comment")
-    redirect_to @post
+    redirect_to posts_path
   end
 
   # PATCH/PUT /comments/1 or /comments/1.json
   def update
     if @comment.update(comment_params)
       flash[:notice] = "Comment was successfully updated."
-      redirect_to @comment.post
+      redirect_to posts_path
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1 or /comments/1.json
   def destroy
     flash[:notice] = "Comment was successfully destroyed." if @comment.destroy
-    redirect_to @comment.post
+    redirect_to posts_path
   end
 
   private
@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
     def check_user
       unless current_user == @comment.user
         flash[:alert] = "Comment can only be modified by the comment author"
-        redirect_to @comment.post
+        redirect_to posts_path
       end
     end
 

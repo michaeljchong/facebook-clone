@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
 
-  resources :posts, shallow: true, concerns: :likeable do
+  resources :posts, expect: [:show], shallow: true, concerns: :likeable do
     resources :comments, except: [:new, :index, :show], concerns: :likeable
   end
 end
