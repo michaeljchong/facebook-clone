@@ -15,17 +15,17 @@ Project Features:
 * Only post/comment author can edit and delete post/comment
 
 In Progress:
-* display comments and likes with posts on posts index page
-* Sort posts on posts index page by created by date
+* User profile photo
 
 To Do:
-* Set view state on notifications to differentiate between ones that have already been seen
-* Destroy friend request notification once request is accepted or deleted
-* Fix error in notifications after destroying like, post, or comment (association with dependent destroy)
-* User profile photo
+* Notifications
+  * Set view state on notifications to differentiate between ones that have already been seen
+  * Destroy friend request notification once request is accepted or deleted
+  * Fix error in notifications after destroying like, post, or comment (association with dependent destroy)
 * OmniAuth signin
 * Mailer for welcome email
 * Change links to buttons
+* Edit comments and posts without being redirected to an edit page
 
 Project Extensions:
 * Set posts to private, friends-only or public
