@@ -7,15 +7,19 @@ Project Features:
 * Complex rails associations between multiple models
 * PostgreSQL
 * User commenting on posts
-* User show page shows profile info and posts
+* User page shows profile info (name, email, photo) and posts
 * Send and receive friend requests on users index page
 * Notifications for new friend requests, comments, and likes
 * Like/unlike posts and comments
 * Navbar (User profile, posts, users, notifications, edit profile, log in/out)
 * Only post/comment author can edit and delete post/comment
+* Hosting via fly.io
 
 In Progress:
 * User profile photo
+  * Set default image src
+  * Upload option in devise new and edit
+  * Display image on navbar, posts, comments
 
 To Do:
 * Notifications
@@ -26,9 +30,11 @@ To Do:
 * Mailer for welcome email
 * Change links to buttons
 * Edit comments and posts without being redirected to an edit page
+* Display new post form on posts page
 
 Project Extensions:
 * Set posts to private, friends-only or public
 * Refactor to move friendship methods from controller to model
 * Display other users who also liked post/comment
 * Notifications link to referenced post/comment, or allows user to respond to friend request
+* Hide all comments except for the first
