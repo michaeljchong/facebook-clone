@@ -3,7 +3,6 @@
 The goal of this project was to create a clone of facebook using rails MVC. Users have their own profiles and are able to have similar relationships with posts and other users as the original Facebook app. See the <a href="https://mchong-facebook-clone.fly.dev">Live Preview</a>.
 
 Project Features:
-<<<<<<< Updated upstream
 
 - Devise user authentication
 - Complex rails associations between multiple models
