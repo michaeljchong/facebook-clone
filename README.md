@@ -15,21 +15,20 @@ Project Features:
 - Navbar (User profile, posts, users, notifications, edit profile, log in/out)
 - Only post/comment author can edit and delete post/comment
 - Hosting via fly.io
+- OmniAuth signin via Facebook
 
 In Progress:
+
+To Do:
 
 - User profile photo
   - Set default image src
   - Upload option in devise new and edit
   - Display image on navbar, posts, comments
-
-To Do:
-
 - Notifications
   - Set view state on notifications to differentiate between ones that have already been seen
   - Destroy friend request notification once request is accepted or deleted
   - Fix error in notifications after destroying like, post, or comment (association with dependent destroy)
-- OmniAuth signin
 - Mailer for welcome email
 - Change links to buttons
 - Edit comments and posts without being redirected to an edit page
